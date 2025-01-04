@@ -1,0 +1,17 @@
+
+/*!* to-do list section & header styles *!
+#to-do-list-section {
+    min-width: 260px;
+}
+#to-do-list-section > header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 24px;
+}
+#to-do-list-section h1 {
+    font-size: 2.5rem;
+}*/
+

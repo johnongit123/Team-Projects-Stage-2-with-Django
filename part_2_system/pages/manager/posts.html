@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+
+    <!-- css -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../../css/dash.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/forum-post-style.css">
+
+    <!-- javascript -->
+    <!-- jQuery library --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="../../js/to-do-list.js" defer></script>
+    <script src="../../js/posts.js" defer></script>
+    <script src="../../js/sidebar.js" defer></script>
+</head>
+<body>
+<div class="page-container">
+    <div class="sidebar-container">
+        <aside class="sidebar">
+            <!-- top section -->
+            <div class="top">
+                <h3>Make-It-All</h3>
+                <i class="bx bx-menu" id="menuBtn"></i>
+            </div>
+
+            <!-- user info -->
+            <div class="user">
+                <img src="../../images/office2.jpeg" alt="" class="user-img">
+                <div>
+                    <b>Manager1</b>
+                    <p>Manager</p>
+                </div>
+            </div>
+
+            <!-- navigation links -->
+            <nav>
+                <a href="overview.html">
+                    <i class="bx bx-grid-alt"></i>
+                    <span class="nav-item">Overview</span>
+                </a>
+
+                <a href="projects.html">
+                    <i class='bx bx-objects-horizontal-left'></i>
+                    <span class="nav-item">Projects</span>
+                </a>
+
+                <a href="employees.html">
+                    <i class='bx bx-user'></i>
+                    <span class="nav-item">Employees</span>
+                </a>
+
+                <a href="to-do-list.html">
+                    <i class='bx bx-task'></i>
+                    <span class="nav-item">Todo</span>
+                </a>
+
+                <a href="topics.html" class="current-page">
+                    <i class='bx bx-chat' ></i>
+                    <span class="nav-item">Topics</span>
+                </a>
+                <a href="" id="invite">
+                    <i class='bx bx-paper-plane'></i>
+                    <span class="nav-item">Invite User</span>
+                </a>
+
+                <a href="../../index.html">
+                    <i class='bx bx-exit' ></i>
+                    <span class="nav-item">Logout</span>
+                </a>
+            </nav>
+
+            <div class="switch-theme">
+                <div class="switch-to-light">
+                    <i class="bx bx-sun"></i>
+                    <p>Light Theme</p>
+                </div>
+
+                <div class="switch-to-dark">
+                    <i class="bx bx-moon"></i>
+                    <p>Dark Theme</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <main class="main-content">
+        <section class="topic-container">
+            <header>
+                <h1>Post View</h1>
+
+                <div class="options">
+                    <input type="checkbox" name="edit-topics" id="edit-topic" class="topic-option">
+                    <label for="edit-topic">Edit Topic</label>
+                    <a href="./topics.html" class="link-button">Back to Search</a>
+                </div>
+            </header>
+
+            <section class="topic-view">
+                <div class="topic-details">
+                    <header>
+                        <h2>Software Development</h2>
+                        <p class="date">10/12/2005</p>
+                    </header>
+                    <p class="description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mattis augue eros,
+                        in tincidunt massa lacinia non. Aenean tempus mattis lobortis. Quisque vitae mattis diam, at laoreet enim.
+                        Vestibulum at sem nec enim fermentum imperdiet. Nullam eget commodo neque. Praesent massa erat, varius eget diam quis,
+                        rutrum molestie risus. Proin auctor pulvinar euismod. Pellentesque ac congue nunc. Integer semper interdum fermentum.
+                        Pellentesque vitae rhoncus nibh, eu mollis ligula.</p>
+                </div>
+
+                <div class="comment-container">
+                    <h3 class="comment-count">1 Comments</h3>
+
+                    <div class="add-comment-container">
+                        <p class="placeholder">Comment</p>
+                        <p id="comment-text" contenteditable="true" role="textbox"></p>
+                        <button id="add-comment" class="link-button" type="button"><i class="bx bx-comment-add"></i> Comment</button>
+                    </div>
+
+                    <ul class="comments" id="comments">
+                        <li class="comment">
+                            <div class="comment-info">
+                                <h3>User 1</h3>
+                                <p class="date">03/11/2023</p>
+                            </div>
+                            <p>Comment Content</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </section>
+    </main>
+</div>
+
+</body>
+</html>

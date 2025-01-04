@@ -1,0 +1,85 @@
+<!doctype html>
+
+<html lang="en" data-theme="light">
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <title>Sign Up</title>
+
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../index.css">
+        <!-- jQuery library --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    </head>
+
+    <body>
+
+        <section>
+
+            <div class="signin">
+
+                <div class="content">
+
+                    <h2>MAKE-IT-ALL</h2>
+
+                    <div class="form">
+
+                        <div class="inputBox">
+
+                            <input type="text" required> <i>Username</i>
+
+                        </div>
+
+                        <div class="inputBox">
+
+                            <input type="password" required> <i>Password</i>
+
+                        </div>
+
+                        <div class="inputBox">
+
+                            <input type="password" required> <i>Re-Type Password</i>
+
+                        </div>
+
+                        <div class="links"> 
+
+                            <a href="forgot_password.html">Forgot Password</a>
+
+                            <a href="../index.html">Login</a>
+
+                        </div>
+
+                        <div class="inputBox">
+
+                            <a href="manager/to-do-list.html">
+
+                                <input type="submit" value="Signup">
+                                
+                            </a>
+                            
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        <script>
+            // check if system preference is dark colour scheme
+            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                // set to dark theme
+                $("html").attr("data-theme", "dark")
+            }
+
+            // check if system preference changes
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', event => {
+                const theme = event.matches ? "dark" : "light";
+                $("html").attr("data-theme", theme)
+            });
+        </script>
+    </body>
+</html>

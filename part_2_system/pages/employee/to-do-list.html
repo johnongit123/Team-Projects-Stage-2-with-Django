@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+
+    <!-- css -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/dash.css">
+    <link rel="stylesheet" href="../../css/to-do-list-section-style.css">
+    <link rel="stylesheet" href="../../css/to-do-list-style.css">
+    <link rel="stylesheet" href="../../css/modal-form-style.css">
+
+    <!-- javascript -->
+    <!-- jQuery library --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="../../js/to-do-list.js" defer></script>
+    <script src="../../js/sidebar.js" defer></script>
+
+</head>
+<body>
+
+<div class="page-container">
+    <div class="sidebar-container">
+        <aside class="sidebar">
+            <!-- top section -->
+            <div class="top">
+                <h3>Make-It-All</h3>
+                <i class="bx bx-menu" id="menuBtn"></i>
+            </div>
+
+            <!-- user info -->
+            <div class="user">
+                <img src="../../images/office2.jpeg" alt="" class="user-img">
+                <div>
+                    <b>USER1</b>
+                    <p>Employee</p>
+                </div>
+            </div>
+
+            <!-- navigation links -->
+            <nav>
+
+
+                <a href="projects.html">
+                    <i class='bx bx-objects-horizontal-left'></i>
+                    <span class="nav-item">Projects</span>
+                </a>
+
+
+                <a href="./to-do-list.html" class="current-page">
+                    <i class='bx bx-task'></i>
+                    <span class="nav-item">Todo</span>
+                </a>
+
+                <a href="topics.html">
+                    <i class='bx bx-chat' ></i>
+                    <span class="nav-item">Topics</span>
+                </a>
+                <a href="" id="invite">
+                    <i class='bx bx-paper-plane'></i>
+                    <span class="nav-item">Invite User</span>
+                </a>
+
+                <a href="../../index.html">
+                    <i class='bx bx-exit' ></i>
+                    <span class="nav-item">Logout</span>
+                </a>
+            </nav>
+
+            <div class="switch-theme">
+                <div class="switch-to-light">
+                    <i class="bx bx-sun"></i>
+                    <p>Light Theme</p>
+                </div>
+
+                <div class="switch-to-dark">
+                    <i class="bx bx-moon"></i>
+                    <p>Dark Theme</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <main class="main-content">
+        <section id="to-do-list-section">
+            <header>
+                <h1>To-Do List</h1>
+
+                <div class="project-filter">
+                    <label for="switch-project">Switch Project</label>
+                    <select id="switch-project">
+                        <option value="0">All Projects</option>
+                        <option value="1">Project 1</option>
+                        <option value="2">Project 2</option>
+                    </select>
+                </div>
+                <div class="to-do-list-options">
+                    <input id="edit-tasks" type="checkbox">
+                    <label for="edit-tasks">Edit Tasks</label>
+
+                    <input id="create-new-project-task" type="checkbox">
+                    <label for="create-new-project-task">+ New Project Task</label>
+
+                    <input id="create-new-private-task" type="checkbox">
+                    <label for="create-new-private-task">+ New Private Task</label>
+                </div>
+            </header>
+
+            <!-- to-do list -->
+            <div class="adjacent">
+                <section class="todo-results-container">
+                    <header>
+                        <h2>Project Tasks</h2>
+                    </header>
+                    <br>
+                    <ul id="to-do-list">
+                        <li>
+                            <div class="top-section" style="background-color: #9963d9">
+                                <h3>Task Title</h3>
+                                <label class="edit-option"><input type="checkbox">Mark Complete</label>
+                                <button type="button" class="edit-option">🞭</button>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum illum, nam nemo porro soluta voluptatem voluptates. Accusantium aliquid animi cumque excepturi saepe vero voluptatum.</p>
+                            <p class="time-to-complete">Time to Complete: 5 hrs</p>
+                        </li>
+                    </ul>
+                </section>
+                <!--<br>-->
+                <section class="todo-results-container">
+                    <header>
+                        <h2>Private Tasks</h2>
+                    </header>
+                    <br>
+                    <ul id="to-do-list1">
+                        <li>
+                            <div class="top-section">
+                                <h3>Task Title</h3>
+                                <label class="edit-option"><input type="checkbox">Mark Complete</label>
+                                <button type="button" class="edit-option">🞭</button>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum illum, nam nemo porro soluta voluptatem voluptates. Accusantium aliquid animi cumque excepturi saepe vero voluptatum.</p>
+                            <p class="time-to-complete">Time to Complete: 5 hrs</p>
+                        </li>
+
+                        <li>
+                            <div class="top-section" style="background-color: #2fa90e">
+                                <h3>Task Title</h3>
+                                <label class="edit-option"><input type="checkbox">Mark Complete</label>
+                                <button type="button" class="edit-option">🞭</button>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum illum, nam nemo porro soluta voluptatem voluptates. Accusantium aliquid animi cumque excepturi saepe vero voluptatum.</p>
+                            <p class="time-to-complete">Time to Complete: 5 hrs</p>
+                        </li>
+
+                        <li>
+                            <div class="top-section" style="background-color: #c03a00">
+                                <h3>Task Title</h3>
+                                <label class="edit-option"><input type="checkbox">Mark Complete</label>
+                                <button type="button" class="edit-option">🞭</button>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum illum, nam nemo porro soluta voluptatem voluptates. Accusantium aliquid animi cumque excepturi saepe vero voluptatum.</p>
+                            <p class="time-to-complete">Time to Complete: 5 hrs</p>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- new project task form - starts off hidden -->
+            <div id="form-background" class="modal-background" style="display: none">
+                <form id="new-project-task-form" class="modal-form">
+                    <header>
+                        <h3>Add New Task</h3>
+                        <button type="button" id="close-new-project-task-form"><i class="bx bx-x"></i></button>
+                    </header>
+
+                    <!-- title -->
+                    <label for="project-task-title-input">Task Title<br>
+                        <input type="text" name="task-title" id="project-task-title-input" required>
+                    </label>
+
+                    <!-- color -->
+                    <label for="project-task-color-input">Task Title Color<br>
+                        <select name="task-color" id="project-task-color-input">
+                            <option value="royalblue">Blue</option>
+                            <option value="#2fa90e">Green</option>
+                            <option value="#c03a00">Red</option>
+                            <option value="#9963d9">Purple</option>
+                        </select>
+                    </label>
+
+                    <!-- relevant project -->
+                    <label for="private-task-project-input">Associated Project<br>
+                        <select name="task-project" id="private-task-project-input" required>
+                            <option value="1">Project 1</option>
+                            <option value="2">Project 2</option>
+                        </select>
+                    </label>
+
+                    <!-- time to complete -->
+                    <label for="project-time-to-complete">Time to Complete (hrs)<br>
+                        <input type="number" id="project-time-to-complete">
+                    </label>
+
+                    <!-- description -->
+                    <label for="project-task-desc-input">Task Description<br>
+                        <textarea name="task-desc" id="project-task-desc-input" cols="40" rows="10"></textarea>
+                    </label>
+
+                    <button type="submit">Add Task</button>
+                </form>
+            </div>
+
+            <!-- new private task form - starts off hidden -->
+            <div id="form-background1" class="modal-background" style="display: none">
+                <form id="new-private-task-form" class="modal-form">
+                    <header>
+                        <h3>Add New Task</h3>
+                        <button type="button" id="close-new-private-task-form"><i class="bx bx-x"></i></button>
+                    </header>
+
+                    <!-- title -->
+                    <label for="private-task-title-input">Task Title<br>
+                        <input type="text" name="task-title" id="private-task-title-input" required>
+                    </label>
+
+                    <!-- color -->
+                    <label for="private-task-color-input">Task Title Color<br>
+                        <select name="task-color" id="private-task-color-input">
+                            <option value="royalblue">Blue</option>
+                            <option value="#2fa90e">Green</option>
+                            <option value="#c03a00">Red</option>
+                            <option value="#9963d9">Purple</option>
+                        </select>
+                    </label>
+
+                    <!-- time to complete -->
+                    <label for="private-time-to-complete">Time to Complete (hrs)<br>
+                        <input type="number" id="private-time-to-complete">
+                    </label>
+
+                    <!-- description -->
+                    <label for="private-task-desc-input">Task Description<br>
+                        <textarea name="task-desc" id="private-task-desc-input" cols="40" rows="10"></textarea>
+                    </label>
+
+                    <button type="submit">Add Task</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+</div>
+
+</body>
+</html>

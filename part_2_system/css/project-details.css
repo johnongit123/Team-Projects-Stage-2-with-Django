@@ -1,0 +1,215 @@
+
+/* Project Details - Header (title, deadline, status) */
+.project-details {
+    --project-colour: transparent;
+    min-width: 700px;
+}
+.main-content .project-details > header {
+    align-items: stretch;
+}
+.project-details > header h2 {
+    --bg-colour: var(--project-colour);
+    color: white;
+    font-size: 2.5rem;
+    text-align: center;
+    width: 100%;
+}
+.project-details > header p {
+    color: var(--alt-text-color);
+    font-size: 1.4rem;
+    text-align: center;
+}
+.project-details > header p > b {
+    color: var(--text-color);
+}
+.project-details > header > .status-section {
+    gap: 1rem;
+}
+
+/* Project Details - generic sections */
+.project-details > section h3, .project-details > .list-container h3 {
+    font-size: 2rem;
+}
+.project-details > section {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+/* Project Details - Progress Section */
+.project-details .project-progress {
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+.project-details .project-progress > progress {
+    --_inner-element-color: var(--project-colour);
+    width: 40%;
+    height: 28px;
+}
+.chart-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+/* Employee Card */
+.employee-card {
+    --bg-colour: var(--bg-1);
+    --employee-colour: royalblue;
+    --padding: 1rem;
+    width: 30rem;
+    min-width: 10rem;
+}
+.employee-card h4 {
+    --bg-colour: var(--employee-colour);
+    text-align: center;
+    color: white;
+    font-size: 2.25rem;
+    width: 100%;
+}
+
+/* Employee Details */
+.employee-details {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    align-items: center;
+}
+.employee-details div {
+    --flex-direction: column;
+    display: flex;
+    flex-direction: var(--flex-direction);
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+}
+.employee-details i.bx.bx {
+    font-size: 1.7rem;
+}
+.employee-details p {
+    font-size: 1.1rem;
+    color: var(--alt-text-color);
+    white-space: nowrap;
+}
+.employee-details p > b {
+    color: var(--text-color);
+}
+
+/* Employee Details - Profile */
+.profile {
+    min-width: 7.5rem;
+}
+.profile > img {
+    max-width: 70%;
+}
+.profile > div {
+    --flex-direction: row;
+}
+
+/* Employee Details - Progress */
+.employee-details > .progress {
+    --flex-direction: column;
+    height: 100%;
+}
+.progress > div {
+    --flex-direction: row;
+    align-self: flex-start;
+    margin-left: 5%;
+}
+.progress progress {
+    --_border-radius: 4px;
+    --_inner-element-color: var(--employee-colour);
+    width: 1.6rem;
+    height: .75rem;
+}
+
+/* Employee Details - View Tasks Radio */
+.employee-details .view-tasks {
+    display: flex;
+    margin-inline: auto;
+}
+.view-tasks > span {
+    cursor: pointer;
+    padding-block: .5rem;
+    padding-inline: 2rem;
+    border: transparent 4px solid;
+    border-radius: .5rem;
+    background-color: var(--bg-2);
+    transition: border .25s ease;
+}
+.view-tasks > input {
+    position: absolute;
+    appearance: none;
+}
+.view-tasks > input:hover + span,
+.view-tasks > input:focus + span {
+    border-color: rgb(var(--accent));
+}
+.view-tasks > input:checked:focus + span {
+    border-color: var(--alt-text-color);
+}
+.view-tasks > input:checked:hover + span,
+.view-tasks > input:checked + span {
+    color: black;
+    font-weight: bolder;
+    border-color: rgb(var(--accent));
+    background-color: rgb(var(--accent));
+}
+
+
+
+
+
+/* Project Members - Toggle Buttons */
+.toggle-button {
+    margin-left: auto;
+}
+.toggle-button label {
+    --bg-colour: var(--bg-1);
+}
+/* Toggle Button */
+.toggle-button {
+    --bg-colour: var(--bg-2);
+    position: relative;
+}
+.toggle-button input {
+    position: absolute;
+    opacity: 0;
+}
+.toggle-button label {
+    user-select: none;
+    padding-block: .1rem;
+    padding-inline: .5rem;
+    border-radius: 4px;
+    border: transparent 2px solid;
+    background-color: var(--bg-colour);
+
+    transition: border 250ms ease;
+}
+.toggle-button label:hover {
+    cursor: pointer;
+}
+.toggle-button input:checked + label,
+.toggle-button input:active + label {
+    border-color: #f6b31d;
+}
+.toggle-button input:focus + label {
+    outline: black 1px solid;
+}
+
+
+#project-member-tasks-modal {
+    gap: 3.25rem;
+}
+#project-member-tasks-modal .employee-card {
+    margin-inline: auto;
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+
+    <!-- css -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/dash.css">
+    <link rel="stylesheet" href="../../css/to-do-list-section-style.css">
+    <link rel="stylesheet" href="../../css/modal-form-style.css">
+    <link rel="stylesheet" href="../../css/project-list-style.css">
+
+    <!-- javascript -->
+    <!-- jQuery library --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="../../js/projects.js" defer></script>
+    <script src="../../js/sidebar.js" defer></script>
+
+</head>
+<body>
+
+<div class="page-container">
+    <div class="sidebar-container">
+        <aside class="sidebar">
+            <!-- top section -->
+            <div class="top">
+                <h3>Make-It-All</h3>
+                <i class="bx bx-menu" id="menuBtn"></i>
+            </div>
+
+            <!-- user info -->
+            <div class="user">
+                <img src="../../images/office2.jpeg" alt="" class="user-img">
+                <div>
+                    <b>User1</b>
+                    <p>Employee</p>
+                </div>
+            </div>
+
+            <!-- navigation links -->
+            <nav>
+
+                <a href="./projects.html" class="current-page">
+                    <i class='bx bx-objects-horizontal-left'></i>
+                    <span class="nav-item">Projects</span>
+                </a>
+
+
+
+                <a href="to-do-list.html">
+                    <i class='bx bx-task'></i>
+                    <span class="nav-item">Todo</span>
+                </a>
+
+                <a href="topics.html">
+                    <i class='bx bx-chat' ></i>
+                    <span class="nav-item">Topics</span>
+                </a>
+                <a href="" id="invite">
+                    <i class='bx bx-paper-plane'></i>
+                    <span class="nav-item">Invite User</span>
+                </a>
+
+                <a href="../../index.html">
+                    <i class='bx bx-exit' ></i>
+                    <span class="nav-item">Logout</span>
+                </a>
+            </nav>
+
+            <div class="switch-theme">
+                <div class="switch-to-light">
+                    <i class="bx bx-sun"></i>
+                    <p>Light Theme</p>
+                </div>
+
+                <div class="switch-to-dark">
+                    <i class="bx bx-moon"></i>
+                    <p>Dark Theme</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <main class="main-content">
+        <section id="to-do-list-section">
+            <header>
+                <h1>Project Overview</h1>
+            </header>
+
+            <!-- to-do list -->
+            <h2>Membering Projects</h2>
+            <br>
+            <ul id="to-do-list-1">
+                <li>
+                    <div class="top-section">
+                        <progress value="85" max="100" class="color-2"></progress>
+                        <h3>Name</h3>
+                        <button type="button" class="edit-option">🞭</button>
+                    </div>
+                    <p>Project Lead: Napoleon</p>
+                    <p>Start Date: 18/6/1815</p>
+                    <p>Status: Initialization</p>
+                    <p>Workers: 9000</p>
+                </li>
+
+                <li>
+                    <div class="top-section">
+                        <progress value="22" max="100" class="color-3"></progress>
+                        <h3>Name</h3>
+                        <button type="button" class="edit-option">🞭</button>
+                    </div>
+                    <p>Project Lead: Simon</p>
+                    <p>Start Date: 18/8/2022</p>
+                    <p>Status: Planning</p>
+                    <p>Workers: 12</p>
+                </li>
+
+                <li>
+                    <div class="top-section">
+                        <progress value="40" max="100" class="color-4"></progress>
+                        <h3>Name</h3>
+                        <button type="button" class="edit-option">🞭</button>
+                    </div>
+                    <p>Project Lead: Mohammed</p>
+                    <p>Start Date: 2/84/2000</p>
+                    <p>Status: Ongoing</p>
+                    <p>Workers: 5</p>
+                </li>
+            </ul>
+
+            <!-- new task form - starts off hidden -->
+            <div id="form-background" class="modal-background" style="display: none">
+                <form id="new-task-form" class="modal-form">
+                    <header>
+                        <h3>Add New Project</h3>
+                        <button type="button" id="close-new-task-form"><i class="bx bx-x"></i></button>
+                    </header>
+
+                    <!-- title -->
+                    <label for="task-title-input">Project Title<br>
+                        <input type="text" name="task-title" id="task-title-input" required>
+                    </label>
+
+                    <!-- color -->
+                    <label for="task-color-input">Project Title Color<br>
+                        <select name="task-color" id="task-color-input">
+                            <option value="royalblue">Blue</option>
+                            <option value="#2fa90e">Green</option>
+                            <option value="#c03a00">Red</option>
+                            <option value="#9963d9">Purple</option>
+                        </select>
+                    </label>
+
+                    <!-- description -->
+                    <label for="task-desc-input">Project Description<br>
+                        <textarea name="task-desc" id="task-desc-input" cols="40" rows="10"></textarea>
+                    </label>
+
+                    <button type="submit">Add Project</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+</div>
+
+</body>
+</html>

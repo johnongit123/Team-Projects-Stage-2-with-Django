@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview</title>
+
+    <!-- css -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/dash.css">
+    <link rel="stylesheet" href="../../css/overview.css">
+
+
+    <!-- javascript -->
+    <!-- jQuery library --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="../../js/to-do-list.js" defer></script>
+    <script src="../../js/sidebar.js" defer></script>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="sidebar-container">
+        <aside class="sidebar">
+            <!-- top section -->
+            <div class="top">
+                <h3>Make-It-All</h3>
+                <i class="bx bx-menu" id="menuBtn" tabindex="0"></i>
+            </div>
+
+            <!-- user info -->
+            <div class="user">
+                <img src="../../images/office2.jpeg" alt="" class="user-img">
+                <div>
+                    <b>Manager1</b>
+                    <p>Manager</p>
+                </div>
+            </div>
+
+            <!-- navigation links -->
+            <nav>
+                <a href="./overview.html" class="current-page">
+                    <i class="bx bx-grid-alt"></i>
+                    <span class="nav-item">Overview</span>
+                </a>
+
+                <a href="projects.html">
+                    <i class='bx bx-objects-horizontal-left'></i>
+                    <span class="nav-item">Projects</span>
+                </a>
+
+                <a href="employees.html">
+                    <i class='bx bx-user'></i>
+                    <span class="nav-item">Employees</span>
+                </a>
+
+                <a href="to-do-list.html">
+                    <i class='bx bx-task'></i>
+                    <span class="nav-item">Todo</span>
+                </a>
+
+                <a href="topics.html">
+                    <i class='bx bx-chat' ></i>
+                    <span class="nav-item">Topics</span>
+                </a>
+                <a href="" id="invite">
+                    <i class='bx bx-paper-plane'></i>
+                    <span class="nav-item">Invite User</span>
+                </a>
+
+                <a href="../../index.html">
+                    <i class='bx bx-exit' ></i>
+                    <span class="nav-item">Logout</span>
+                </a>
+            </nav>
+
+            <div class="switch-theme">
+                <div class="switch-to-light">
+                    <i class="bx bx-sun"></i>
+                    <p>Light Theme</p>
+                </div>
+
+                <div class="switch-to-dark">
+                    <i class="bx bx-moon"></i>
+                    <p>Dark Theme</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <main class="main-content">
+        <section class="overview">
+            <header class="header">
+                <h1>Manager</h1>
+                <h2>Overview</h2>
+            </header>
+
+            <div class="content">
+
+                <section class="list-container">
+                    <header>
+                        <h3>Project(s)</h3>
+                        <a href="projects.html" class="link-button">View Details</a>
+                    </header>
+
+
+                    <ul class="project-list">
+                        <li class="project-progress-card" tabindex="0" data-selected="0" data-project-id="1">
+                            <div class="project-info">
+                                <h3>Project 1</h3>
+                                <p>Deadline: 02/03/2024</p>
+                            </div>
+                            <div class="project-progress">
+                                <progress value="75" max="100" class="project-progress-bar" style="--_inner-element-color: royalblue"></progress>
+                                <p>75% (3/5) Complete</p>
+                            </div>
+                        </li>
+
+                        <li class="project-progress-card" tabindex="0" data-selected="0" data-project-id="2">
+                            <div class="project-info">
+                                <h3>Project 2</h3>
+                                <p>Deadline: 01/12/2023</p>
+                            </div>
+                            <div class="project-progress">
+                                <progress value="5" max="100" class="project-progress-bar"></progress>
+                                <p>5% (1/20) Complete</p>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="list-container">
+                    <header>
+                        <h3>Project Members</h3>
+                    </header>
+
+                    <ul class="employee-list">
+                        <!-- project 1 employees -->
+                        <li class="employee-card" data-project-id="1">
+                            <div class="top-section" style="background-color: brown">
+                                <h3>Agatha</h3>
+                            </div>
+                            <div class="bottom-section">
+                                <img src="../../images/blank-user.png" alt="Employee Profile Image">
+                                <div class="employee-progress">
+                                    <p>20 Hrs of Tasks Left</p>
+                                    <p>2/3 Complete</p>
+                                </div>
+                                <a href="to-do-list.html" class="link-button">Manage Tasks</a>
+                            </div>
+                        </li>
+                        <li class="employee-card" data-project-id="1">
+                            <div class="top-section" style="background-color: purple">
+                                <h3>Clara</h3>
+                            </div>
+                            <div class="bottom-section">
+                                <img src="../../images/blank-user.png" alt="Employee Profile Image">
+                                <div class="employee-progress">
+                                    <p>20 Hrs of Tasks Left</p>
+                                    <p>2/3 Complete</p>
+                                </div>
+                                <a href="to-do-list.html" class="link-button">Manage Tasks</a>
+                            </div>
+                        </li>
+
+
+                        <!-- project 2 employees -->
+                        <li class="employee-card" data-project-id="2">
+                            <div class="top-section">
+                                <h3>Dave</h3>
+                            </div>
+                            <div class="bottom-section">
+                                <img src="../../images/blank-user.png" alt="Employee Profile Image">
+                                <div class="employee-progress">
+                                    <p>20 Hrs of Tasks Left</p>
+                                    <p>2/3 Complete</p>
+                                </div>
+                                <a href="to-do-list.html" class="link-button">Manage Tasks</a>
+                            </div>
+                        </li>
+
+                        <li class="employee-card" data-project-id="2">
+                            <div class="top-section" style="background-color: #c03a00">
+                                <h3>John</h3>
+                            </div>
+                            <div class="bottom-section">
+                                <img src="../../images/blank-user.png" alt="Employee Profile Image">
+                                <div class="employee-progress">
+                                    <p>20 Hrs of Tasks Left</p>
+                                    <p>2/3 Complete</p>
+                                </div>
+                                <a href="to-do-list.html" class="link-button">Manage Tasks</a>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </section>
+    </main>
+</div>
+
+</body>
+<script>
+    /* selecting a project to view its members */
+    $('.project-list').on('click', '.project-progress-card', function () {
+        const cardClicked = $(this);
+        const isSelected = cardClicked.attr("data-selected") === "1";
+
+        // Reset all project cards and hide all employees
+        $(".project-progress-card").attr("data-selected", "0");
+        $(".employee-card").hide();
+
+        // set selected project and show matching employees
+        if (!isSelected) {
+            const projectId = cardClicked.attr("data-project-id");
+            cardClicked.attr("data-selected", "1");
+            $(`.employee-card[data-project-id=${projectId}]`).show();
+        } else {
+            // Show all employees if no project is selected
+            $(".employee-card").show();
+        }
+    });
+
+</script>
+</html>

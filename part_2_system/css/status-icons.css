@@ -1,0 +1,52 @@
+/* Status Icons */
+.status {
+    display: grid;
+    place-content: center;
+
+    height: 3.75rem;
+    width: 3.75rem;
+    padding: .45rem;
+    background-color: var(--bg-2);
+    border-radius: 16px;
+}
+/* For all icons not in sidebar */
+.main-content i.bx {
+    font-size: 2.5rem;
+}
+/* Project/Task Overdue Icon */
+i.bx-alarm-exclamation {
+    color: #ca431f;
+    scale: 0.95;
+}
+/* Project/Task Complete Icon */
+i.bx-check-circle {
+    color: #4b9917;
+}
+/* Project/Task Paused Icon */
+i.bx-pause-circle {
+    color: #f6b31d;
+}
+/* Project/Task Ongoing Icon */
+i.bx-refresh {
+    color: #338dff;
+}
+/* Project/Task Pending Start Icon */
+i.bx-dots-horizontal-rounded {
+    color: #b7b7b7;
+    border: 3px solid;
+    border-radius: 100vw;
+    scale: 0.8;
+}
+
+/* help-icon */
+.help-icon {
+    color: var(--text-color);
+    border: 4px solid transparent;
+    cursor: pointer;
+}
+.help-icon:active {
+    background-color: black;
+}
+.help-icon:hover {
+    border-color: rgb(var(--accent));
+}

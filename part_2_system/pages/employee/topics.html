@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topics</title>
+
+    <!-- css -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/dash.css">
+    <link rel="stylesheet" href="../../css/to-do-list-style.css">
+    <link rel="stylesheet" href="../../css/forum-post-style.css">
+    <link rel="stylesheet" href="../../css/modal-form-style.css">
+
+    <!-- javascript -->
+    <!-- jQuery library --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="../../js/forum.js" defer></script>
+    <script src="../../js/sidebar.js" defer></script>
+</head>
+<body>
+<div class="page-container">
+    <div class="sidebar-container">
+        <aside class="sidebar">
+            <!-- top section -->
+            <div class="top">
+                <h3>Make-It-All</h3>
+                <i class="bx bx-menu" id="menuBtn"></i>
+            </div>
+
+            <!-- user info -->
+            <div class="user">
+                <img src="../../images/office2.jpeg" alt="" class="user-img">
+                <div>
+                    <b>USER1</b>
+                    <p>Employee</p>
+                </div>
+            </div>
+
+            <!-- navigation links -->
+            <nav>
+                <a href="projects.html">
+                    <i class='bx bx-objects-horizontal-left'></i>
+                    <span class="nav-item">Projects</span>
+                </a>
+
+                <a href="to-do-list.html">
+                    <i class='bx bx-task'></i>
+                    <span class="nav-item">Todo</span>
+                </a>
+
+                <a href="./topics.html" class="current-page">
+                    <i class='bx bx-chat' ></i>
+                    <span class="nav-item">Topics</span>
+                </a>
+
+                <a href="" id="invite">
+                    <i class='bx bx-paper-plane'></i>
+                    <span class="nav-item">Invite User</span>
+                </a>
+
+                <a href="../../index.html">
+                    <i class='bx bx-exit' ></i>
+                    <span class="nav-item">Logout</span>
+                </a>
+            </nav>
+
+            <div class="switch-theme">
+                <div class="switch-to-light">
+                    <i class="bx bx-sun"></i>
+                    <p>Light Theme</p>
+                </div>
+
+                <div class="switch-to-dark">
+                    <i class="bx bx-moon"></i>
+                    <p>Dark Theme</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <main class="main-content">
+        <section class="forum-container">
+            <header>
+                <h1>Forum</h1>
+
+
+                <div class="search-container">
+                    <!-- &#xebf7 -->
+                    <i class="bx bx-search" id="searchIcon"></i>
+                    <input type="text" oninput="search()" id="searchText" placeholder="Search Topics">
+                    <label for="searchText" style="position: absolute;opacity: 0;">Search Topics</label>
+                </div>
+            </header>
+
+            <section class="results-container">
+                <header>
+                    <h2>Found Topics</h2>
+
+
+                    <input id="add-topic" type="checkbox">
+                    <label for="add-topic">+ New Topic</label>
+                </header>
+
+                <ol id="topics" class="search-results">
+                    <li class="result-item">
+                        <a href="posts.html?1">
+                            <h3 class="title">
+                                Software Development
+                            </h3>
+                            <div class="bottom">
+                                <p class="timestamp">
+                                    10/12/2005
+                                </p>
+                                <p class="comment-count">
+                                    1 comments
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="result-item">
+                        <a href="posts.html?2">
+                            <h3 class="title">
+                                Software Issues
+                            </h3>
+                            <div class="bottom">
+                                <p class="timestamp">
+                                    12/12/2001
+                                </p>
+                                <p class="comment-count">
+                                    1 comments
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="result-item">
+                        <a href="posts.html?3">
+                            <h3 class="title">
+                                Printing
+                            </h3>
+                            <div class="bottom">
+                                <p class="timestamp">
+                                    12/12/2001
+                                </p>
+                                <p class="comment-count">
+                                    1 comments
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="result-item">
+                        <a href="posts.html?4">
+                            <h3 class="title">
+                                Downloads
+                            </h3>
+                            <div class="bottom">
+                                <p class="timestamp">
+                                    12/12/2001
+                                </p>
+                                <p class="comment-count">
+                                    1 comments
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+
+                </ol>
+            </section>
+
+            <div id="form-background" class="modal-background" style="display: none">
+                <form id="new-topic-form" class="modal-form">
+                    <header>
+                        <h3>Create Topic</h3>
+                        <button type="button" id="close-new-topic-form"><i class="bx bx-x"></i></button>
+                    </header>
+
+                    <!-- title -->
+                    <label for="topic-title-input">Topic Title<br>
+                        <input type="text" name="task-title" id="topic-title-input" required>
+                    </label>
+
+                    <!-- description -->
+                    <label for="topic-desc-input">Topic Description<br>
+                        <textarea name="task-desc" id="topic-desc-input" cols="40" rows="10"></textarea>
+                    </label>
+
+                    <button type="submit">Add Task</button>
+                </form>
+            </div>
+        </section>
+    </main>
+</div>
+</body>
+</html>

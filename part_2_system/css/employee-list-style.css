@@ -1,0 +1,147 @@
+#employee-section{
+    position: absolute;
+    top: 5%;
+    width: 90%;
+    overflow-x: auto;
+    left: 5%;
+}
+
+#manager-section{
+    position: absolute;
+    top: 45%;
+    width: 90%;
+    overflow-x: auto;
+    left: 5%;
+}
+
+.to-do-list-section h1{
+    position: relative;
+    width: 15%;
+    margin: 10px;
+}
+
+.to-do-list-section .to-do-list-options{
+    margin: 10px;
+    position: absolute;
+    left: 12%;
+    width: 15%;
+}
+
+#employee-section .to-do-list-options{
+    top: 1%;
+}
+#manager-section .to-do-list-options{
+    top: 1%;
+}
+
+
+
+/* to-do list style */
+.to-do-list-section ul {
+    list-style-type: none;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.to-do-list-section li .top-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 16px;
+    padding-bottom: 8px;
+    background-color: royalblue; /* default task color */
+    border-bottom: var(--bg-1) 6px solid;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+}
+.to-do-list-section li h3 {
+    color: white; /* always remains white (to keep it readable) */
+    font-size: 1.75rem;
+}
+
+.to-do-list-section li img {
+    position: relative;
+    min-width: 12.5rem;
+    max-width: 17.5rem;
+    min-height: 225px;
+    background-color: var(--bg-2);
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+}
+
+
+
+
+/* styles when editing tasks */
+.to-do-list-section .editing .top-section label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-size: 0.5rem;
+    text-align: center;
+    width: min-content;
+    padding-right: 8px;
+}
+
+
+.to-do-list-section .editing .top-section input {
+    width: 15px;
+    height: 15px;
+}
+
+
+.to-do-list-section .editing .top-section button {
+    display: initial;
+    position: absolute;
+    top: 4%;
+    left: 97.5%;
+    translate: -50% -50%;
+
+    color: var(--bg-1);
+    font-size: 1.25rem;
+    line-height: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: 6px var(--bg-1) solid;
+    background-color: #bd340f;
+}
+.to-do-list-section .editing .top-section button:hover {
+    cursor: pointer;
+}
+/* hide the edit options when not editing */
+.to-do-list-section ul .edit-option {
+    display: none;
+    z-index: 5;
+}
+
+
+
+
+/* marked complete style */
+.to-do-list-section .complete::before {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    background-color: rgba(13,13,13,0.9);
+}
+.to-do-list-section .complete::after {
+    content: "Complete";
+    color: white;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: 3;
+    rotate: z -30deg;
+}

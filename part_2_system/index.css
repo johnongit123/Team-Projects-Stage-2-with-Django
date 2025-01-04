@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Monospace, sans-serif;
+}
+
+/* background */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  background-image: url(images/office3.jpg);
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+
+section {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+/* signin div */
+section .signin {
+  position: absolute;
+  width: 30%;
+  height: 60%;
+  background: rgba(var(--accent), 0.5);
+  backdrop-filter: blur(6.8px);
+  -webkit-backdrop-filter: blur(6.8px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 9);
+}
+
+/* signin div content */
+section .signin .content {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* make it all headder */
+section .signin .content h2 {
+  font-size: 2em;
+  color: var(--text-color);
+  text-transform: uppercase;
+}
+
+/* overall form */
+section .signin .content .form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* login divs */
+section .signin .content .form .inputBox {
+  position: relative;
+  width: 100%;
+}
+
+/* error text for fields */
+section .signin .content .form .error-text {
+  position: absolute;
+  font-size: 0.6rem;
+  color: red;
+  display: none;
+}
+section .signin .content .form .error-text.invalid {
+  display: block;
+}
+
+
+section .signin .content .form #email-error-text{
+  top: 12%;
+}
+section .signin .content .form #user-error-text{
+  top: 27%;
+}
+section .signin .content .form #password-error-text{
+  top: 41%;
+}
+section .signin .content .form #re-password-error-text{
+  top: 55%;
+}
+
+
+
+
+
+/* invalid entry */
+section .signin .content .form .inputBox.invalid {
+  border: 2px solid red;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+/* login boxes */
+section .signin .content .form .inputBox input {
+  position: relative;
+  width: 100%;
+  background: var(--bg-2);
+  border: none;
+  outline: none;
+  padding: 25px 10px 7.5px;
+  border-radius: 4px;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 1em;
+}
+
+
+/* placeholder text */
+section .signin .content .form .inputBox i {
+  position: absolute;
+  left: 0;
+  padding: 15px 10px;
+  font-style: normal;
+  color: var(--alt-text-color);
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+/* animations for placeholder text in inputs */
+.signin .content .form .inputBox input:focus~i,
+.signin .content .form .inputBox input:valid~i {
+  transform: translateY(-7.5px);
+  font-size: 0.8em;
+}
+
+/* all links e.g. forgot password and signup */
+.signin .content .form .links {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* forgot password */
+.signin .content .form .links a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+/* sign up */
+.signin .content .form .links a:nth-child(2) {
+  color: var(--text-color);
+}
+
+/* login button */
+.signin .content .form .inputBox input[type="submit"] {
+  padding: 10px;
+  background: var(--bg-1);
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 1.35em;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
+/* make login button transparent on click */
+input[type="submit"]:active {
+  opacity: 0.6;
+}
+
+
+/* styles for php error div */
+.signin .content .form .errorBox{
+  position: relative;
+  top: 5vh;
+  text-align: center;
+  color: red;
+  font-size: 1.5rem;
+}
+
+/* styles for php sucsess div */
+.signin .content .form .sucsessBox{
+  position: relative;
+  top: 5vh;
+  text-align: center;
+  color: blue;
+  font-size: 1.5rem;
+}
