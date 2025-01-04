@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'base_css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'base_css/login-signup.css' %}">
+
+    <script src="{% static 'base_js/sidebar.js' %}" defer></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    {% block head %}{% endblock %}
+</head>
+<body>
+    {% csrf_token %}
+    <section>
+        <div class="signin">
+            <div class="content">
+                <h1>MAKE-IT-ALL</h1>
+                <h2>{% block form-title %}{% endblock %}</h2>
+                <form class="form" id="form">
+                    {% block form-content %}{% endblock %}
+                    <div class="inputBox">
+                        <input type="submit" value="{% block form-submit-label %}{% endblock %}">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,61 @@
+{% extends 'base_login.html' %}
+
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block head %}
+<script defer>
+    $(window).on("load", () => {
+        $("#form").on("submit", function (event) {
+            event.preventDefault();
+            // Get user email and password from form
+            var email = $("#email").val();
+            var password = $("#password").val();
+            
+            var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+            
+            // Send AJAX request to your Django view
+            $.ajax({
+                url: "/login/", // Updated to match Django URL pattern
+				method: "POST",
+				headers: { "X-CSRFToken": csrftoken }, // Include CSRF token in headers
+				data: {
+					csrfmiddlewaretoken: csrftoken, // Also include CSRF token in data
+					employee_email: email,
+					employee_password: password
+				},
+                success: function(response) {
+                    console.log("Login successful");
+                    // Redirect to the chat-list page
+                    window.location.href = "/chat/chat-list";
+                },
+                error: function(xhr, errmsg, err) {
+                    console.log("Login failed");
+                    // Display error message to the user
+                    alert("Invalid email or password.");
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}
+
+{% block form-title %}
+    Login
+{% endblock %}
+
+{% block form-content %}
+    <div class="inputBox">
+        <input type="text" id="email" autocomplete="email" required> <label for="email">Username</label>
+    </div>
+    <div class="inputBox">
+        <input type="password" id="password" autocomplete="current-password" required> <label for="password">Password</label>
+    </div>
+    <div class="links">
+        <a href="/login/">Forgot Password</a>
+        <a href="/signup/">Signup</a>
+    </div>
+{% endblock %}
+
+{% block form-submit-label %}Login{% endblock %}

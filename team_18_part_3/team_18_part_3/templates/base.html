@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- css -->
+    <!-- icons library --><link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'base_css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'base_css/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'base_css/modal-form-style.css' %}">
+
+    <!-- javascript -->
+    <!-- jQuery library --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="{% static 'base_js/modal.js' %}" defer></script>
+    <script src="{% static 'base_js/sidebar.js' %}" defer></script>
+
+    {# Any other tags which need to be inside the head #}
+    {% block head %}{% endblock %}
+</head>
+<body class="page-container">
+
+    {% block sidebar %}
+    <div class="sidebar-container">
+        <aside class="sidebar">
+            <!-- top section -->
+            <div class="top">
+                <h3>Make-It-All</h3>
+                <i class="bx bx-menu" id="menuBtn"></i>
+            </div>
+
+            <!-- user info -->
+            <div class="user">
+                <!--<img src="../../images/chat_images/office2.jpeg" alt="" class="user-img">-->
+                <div>
+                    <b>Manager1</b>
+                    <p>Manager</p>
+                </div>
+            </div>
+
+            <!-- navigation links -->
+            <nav>
+{#                <a href="#">#}
+{#                    <i class="bx bx-grid-alt"></i>#}
+{#                    <span class="nav-item">Overview</span>#}
+{#                </a>#}
+
+                <a href="/analytics/projects/" {% if "analytics" in request.path %}class="current-page"{% endif %}>
+                    <i class='bx bx-objects-horizontal-left'></i>
+                    <span class="nav-item">Projects</span>
+                </a>
+
+                <a href="/chat/chat-list/" {% if "chat" in request.path %}class="current-page"{% endif %}>
+                    <i class="bx bx-message"></i>
+                    <span class="nav-item">Chats</span>
+                </a>
+
+{#                <a href="#">#}
+{#                    <i class='bx bx-user'></i>#}
+{#                    <span class="nav-item">Employees</span>#}
+{#                </a>#}
+{##}
+{#                <a href="#">#}
+{#                    <i class='bx bx-task'></i>#}
+{#                    <span class="nav-item">To do</span>#}
+{#                </a>#}
+{##}
+{#                <a href="#">#}
+{#                    <i class='bx bx-chat' ></i>#}
+{#                    <span class="nav-item">Topics</span>#}
+{#                </a>#}
+{##}
+{#                <a href="" id="invite">#}
+{#                    <i class='bx bx-paper-plane'></i>#}
+{#                    <span class="nav-item">Invite User</span>#}
+{#                </a>#}
+
+                <a href="/login">
+                    <i class='bx bx-exit' ></i>
+                    <span class="nav-item">Logout</span>
+                </a>
+            </nav>
+
+            <div class="switch-theme">
+                <div class="switch-to-light">
+                    <i class="bx bx-sun"></i>
+                    <p>Light Theme</p>
+                </div>
+
+                <div class="switch-to-dark">
+                    <i class="bx bx-moon"></i>
+                    <p>Dark Theme</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+    {% endblock %}
+
+
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

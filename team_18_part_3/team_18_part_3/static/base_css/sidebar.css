@@ -1,0 +1,204 @@
+/* side bar styles */
+.sidebar-container {
+    height: 100%;
+    background-color: #eccc00; /* old color #efcf36*/
+}
+.sidebar{
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+
+    overflow-x: hidden;
+    color: black;
+    font-size: 1.5rem;
+
+    height: 100vh;
+    width: 4em;
+    padding: .8rem;
+}
+.sidebar.animations {
+    transition: width 0.5s ease;
+}
+
+/* sidebar - top */
+.sidebar #menuBtn {
+    font-size: 2rem;
+    cursor: pointer;
+}
+.sidebar .top {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 2em;
+    max-width: 100%;
+
+    font-size: 1.5rem;
+}
+
+/* sidebar - user */
+.user {
+    display: flex;
+    align-items: center;
+}
+.user-img{
+    width: 3rem;
+    height: 3rem;
+
+    margin: 0 auto;
+    border-radius: 100px;
+    border: 2px solid var(--bg-2);
+}
+.user p, .user b {
+    margin-left: 1rem;
+    opacity: 1;
+}
+.user p {
+    font-size: .8rem;
+    text-align: right;
+}
+
+
+/* sidebar - navigation links */
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    width: 100%;
+}
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    color: inherit;
+    font-size: 1.7rem;
+    text-decoration: none;
+
+    width: 7.5em;
+    height: 2.5em;
+    max-width: 100%;
+    min-width: min-content;
+    padding: .8rem;
+    border-radius: 0.8rem;
+}
+.sidebar.animations nav a {
+    transition: background-color 250ms ease-in-out;
+}
+.sidebar nav i {
+    text-align: center;
+    width: 2rem;
+}
+
+.switch-theme {
+    margin-top: auto;
+}
+.sidebar .switch-to-dark,
+.sidebar .switch-to-light {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 1.7rem;
+    padding: .8rem;
+    border-radius: 0.8rem;
+}
+.sidebar.animations .switch-to-dark,
+.sidebar.animations .switch-to-light {
+    transition: background-color .25s ease;
+}
+
+
+.sidebar nav a:hover,
+.sidebar nav a:focus,
+.sidebar .switch-to-dark:hover,
+.sidebar .switch-to-light:hover,
+.sidebar nav .current-page {
+    background-color: white;
+}
+
+
+/* sidebar - inactive styles */
+.sidebar nav {
+    align-items: center;
+}
+.sidebar p, .sidebar b,
+.sidebar .nav-item,
+.sidebar .top h3 {
+    position: absolute;
+    left: -15em;
+    opacity: 0;
+    transition-timing-function: ease;
+}
+.sidebar.animations p,
+.sidebar.animations b,
+.sidebar.animations .nav-item,
+.sidebar.animations .top h3 {
+    transition: left .5s;
+}
+
+/* sidebar - active styles */
+.sidebar.active{
+    width: 11em;
+}
+.sidebar.active .top {
+    justify-content: space-between;
+}
+.sidebar.active .top h3 {
+    margin-right: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.sidebar.active .user-img {
+    margin: 0;
+}
+.sidebar.active nav {
+    align-items: flex-start;
+}
+.sidebar.active nav a {
+    justify-content: flex-start;
+}
+.sidebar.active .switch-to-dark,
+.sidebar.active .switch-to-light {
+    justify-content: flex-start;
+}
+.sidebar.active p, .sidebar.active b,
+.sidebar.active .nav-item,
+.sidebar.active .top h3 {
+    position: relative;
+    left: 0;
+    opacity: 1;
+}
+
+@media (max-width: 500px) {
+    :root {
+        font-size: 0.75rem;
+    }
+}
+@media (max-width: 1600px) and (min-width: 500px) {
+    :root {
+        font-size: 0.875rem;
+    }
+}
+
+
+.link-button {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--text-color);
+    padding: .5rem;
+    background-color: var(--bg-1);
+    border: black 2px solid;
+    border-radius: .5rem;
+    transition: border-color .25s ease;
+}
+.link-button:hover {
+    border-color: rgb(var(--accent));
+}

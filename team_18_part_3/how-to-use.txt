@@ -1,0 +1,16 @@
+Install these python modules on your own machine:
+    - pip install django
+    - pip install djangorestframework
+    - pip install mysqlclient
+
+Command to run Django on own machine:
+    - py manage.py runserver
+
+Modifying the database connection - is commented out for now:
+    - go to settings.py
+    - see DATABASES variable
+
+Project is subdivided into 3 parts:
+    - analytics subsystem
+    - chat subsystem
+    - team_18_part_3 contains shared files between the 2 subsystems
