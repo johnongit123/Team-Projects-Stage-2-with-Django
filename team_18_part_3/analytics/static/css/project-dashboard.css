@@ -1,0 +1,117 @@
+h2 {
+    font-size: 2.5rem;
+}
+h3 {
+    font-size: 1.75rem;
+}
+
+header p {
+    font-size: 1.25rem;
+}
+
+.central-tight {
+    margin-inline: auto;
+    width: fit-content;
+    max-width: max-content;
+}
+
+#graph-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 3rem;
+    column-gap: 1.5rem;
+
+    list-style: none;
+
+    min-width: min-content;
+    min-height: min-content;
+}
+
+/* Graph List Item */
+#graph-list > li {
+    --_size: 30rem;
+    --_padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    box-sizing: content-box;
+    width: var(--_size);
+    height: var(--_size);
+    padding: var(--_padding);
+    background-color: var(--bg-1);
+    border-radius: 2rem;
+}
+#graph-list > li > .graph-container {
+    width: var(--_size);
+    height: var(--_size);
+}
+/* Edit Button */
+.graph .options {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    opacity: 1;
+    translate: 0 -100px;
+    transition: all .25s ease;
+}
+.graph .options > button {
+    --_order: 1;
+
+    display: grid;
+    place-items: center;
+    font-size: 1.25rem;
+
+    padding: .5rem;
+
+    translate: 0 calc(-50px * var(--_order));
+    transition: translate .25s ease calc(50ms * var(--_order));
+}
+.graph:hover .options,
+.graph:hover .options > button {
+    opacity: 1;
+    translate: 0 0;
+}
+
+.new-graph-button {
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+}
+
+
+.modal-form input[type="text"] {
+    cursor: text;
+}
+
+/* Filter Styles */
+.modal-form .filters {
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+.modal-form .filters > label {
+    display: grid;
+    position: relative;
+    width: max-content;
+    height: max-content;
+    border-radius: 100vw;
+}
+.modal-form .filters > input[type="checkbox"] {
+    visibility: hidden;
+    position: absolute;
+}
+.modal-form .filters > input:checked + label {
+    color: black;
+    border-color: rgb(var(--accent));
+    background-color: rgb(var(--accent));
+}
+.modal-form input[type="text"] {
+    font-family: Monospace, sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-2);
+}

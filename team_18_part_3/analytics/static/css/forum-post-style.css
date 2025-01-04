@@ -1,0 +1,197 @@
+h1 {
+    font-size: 2.5rem;
+}
+h2 {
+    font-size: 2rem;
+}
+h3 {
+    font-size: 1.75rem;
+}
+
+/* forum container */
+.forum-container > header {
+    margin-bottom: 2rem;
+}
+.forum-container > header > h1 {
+    margin: 0;
+}
+.forum-container > .background, .forum-container > .burger-layout {
+    --padding: 1.35rem;
+}
+.forum-container .search-bar {
+    width: 60%;
+    max-width: 25rem;
+}
+
+/* search bar - search icon and input box */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    padding: .5rem;
+    padding-left: .8rem;
+    border-radius: .5rem;
+    border: var(--alt-text-color) 2px solid;
+    background-color: var(--bg-2);
+}
+.search-bar i,
+.search-bar #searchText {
+    color: var(--alt-text-color);
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+.search-bar #searchText {
+    background-color: var(--bg-2);
+    border: transparent 4px solid;
+}
+.search-bar #searchText::placeholder {
+    color: var(--alt-text-color);
+}
+
+/* results list */
+.results-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+    row-gap: 1rem;
+
+    list-style: none;
+}
+
+/* result item - used for lists containing topics & posts */
+.result-item {
+    position: relative;
+    cursor: pointer;
+    /*min-width: max-content;*/
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: transparent 4px solid;
+    background-color: var(--bg-2);
+    transition: border-color .25s ease;
+}
+.result-item a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+.result-item .title {
+    font-size: 1.4rem;
+}
+.result-item .bottom {
+    margin-top: 1rem;
+    font-weight: bolder;
+    color: var(--alt-text-color);
+}
+.result-item .bottom {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1rem;
+}
+.result-item:hover,
+.result-item:focus-within {
+    border-color: rgb(var(--accent));
+}
+
+
+/* Details - For Topic & Posts */
+.date  {
+    gap: .5rem;
+    font-size: 1.25rem;
+    font-weight: bolder;
+}
+.post-comment-count {
+    gap: .75rem;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+
+/* topic options */
+.topic-option {
+    position: absolute;
+    opacity: 0;
+}
+.topic-option + label {
+    white-space: nowrap;
+    user-select: none;
+    padding-block: 4px;
+    padding-inline: 16px;
+    border-radius: 4px;
+    border: transparent 4px solid;
+    background-color: var(--bg-2);
+
+    transition: border 250ms ease;
+}
+.topic-option + label:hover {
+    cursor: pointer;
+}
+.topic-option:checked + label,
+.topic-option:active + label {
+    border-color: #f6b31d;
+}
+.topic-option:focus + label {
+    outline: black 4px groove;
+}
+
+
+/* Comment - text input and submit btn */
+#new-comment {
+    --border-radius: 10px;
+    font-size: 1.25rem;
+}
+#new-comment #comment-text {
+    font-size: inherit;
+    padding: .5rem;
+    padding-left: .8rem;
+    border-color: transparent;
+    border-radius: inherit;
+    background-color: var(--bg-1);
+}
+#new-comment label {
+    overflow: hidden;
+    border: none;
+    background-color: transparent;
+}
+#new-comment #add-comment {
+    font-size: inherit;
+    cursor: pointer;
+    padding: .5rem;
+    padding-left: .3rem;
+    border-color: transparent;
+    background-color: var(--bg-1);
+}
+#new-comment #add-comment:hover {
+    border-color: black;
+}
+
+
+
+/* topic comments */
+#comments {
+    list-style: none;
+    --gap: 1rem;
+}
+.comment {
+    --bg-colour: var(--bg-1);
+    --gap: .75rem;
+    position: relative;
+    width: fit-content;
+    max-width: 100%;
+
+    padding: 1rem;
+}
+.comment > .comment-info {
+    color: var(--alt-text-color);
+    font-size: 1rem;
+    font-weight: bolder;
+}
+.comment > .comment-content {
+    font-size: 1.25rem;
+    font-weight: bolder;
+    padding: .25rem;
+}
+.comment [contenteditable] {
+    border-bottom: black 2px solid;
+}
