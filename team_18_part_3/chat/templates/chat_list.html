@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <title>Chat Application</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/chat-list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dash.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.7/css/boxicons.min.css">
+    
+    
+    
+{% endblock %}
+
+{% block content %}
+
+    <div class="modal-overlay" onclick="closeModal()"></div>
+
+    
+
+        
+    <!-- Confirmation modal to leave chat -->
+    <div id="confirmation-modal" class="my-modal">
+        <div class="modal-content">
+            <h2 id="modal-title"></h2>
+            <div class="modal-buttons">
+                <button id="confirm-btn" class="confirm-button">Confirm</button> 
+                <button class="cancel-button" onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Wrap page so that it can be greyed out when modal is opened -->
+    <div id="new-chat-modal" class="my-modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h2>Create New Chat</h2>
+            <button onclick="showModal('group-chat')">Create Group Chat</button>
+            <button onclick="showModal('independent-chat')">Create Independent Chat</button>
+        </div>
+    </div>
+
+    <!-- Group Chat Modal -->
+    <div id="group-chat-modal" class="my-modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h2>Create Group Chat</h2>
+            <input type="text" id="group-chat-name" placeholder="Enter group name" />
+            <button id="invite-users-button" onclick="openInviteModal()">
+                Invite Users 
+                <span id="invite-users-count" class="invite-users-count">0</span>
+            </button>
+            <!-- This button will open the Invite Users modal -->
+            <button onclick="createGroupChat()">Create Group</button>
+        </div>
+    </div>
+
+    <!-- Invite Users Modal -->
+    <div id="invite-users-modal" class="my-modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h2>Invite Users</h2>
+            <!-- Search bar -->
+            <input type="text" id="user-search" placeholder="Search by email..." oninput="filterUsers()">
+            <div id="user-list">
+                <!-- User information will be populated here dynamically -->
+            </div>
+            <button id="confirm-button" onclick="confirmInvite()">Confirm</button>
+        </div>
+    </div>
+
+    <!-- Independent Chat Modal -->
+    <div id="independent-chat-modal" class="my-modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h2>Create Independent Chat</h2>
+            <input type="text" id="independent-chat-email" placeholder="Enter user email" />
+            <button onclick="startIndependentChat()">Start Chat</button>
+        </div>
+    </div>
+
+    <!-- Invitation modal -->
+    <div id="invitation-list-modal" class="my-modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h2>View Chat Invitations</h2>
+            <div id="invitation-list">
+                <!-- Dynamic invitations fetched from the API will be added here -->
+            </div>
+        </div>
+    </div>
+            
+    <div id="header">
+        <h1>Chats</h1>
+        <div class="button-group"> <!-- Container for buttons -->
+            <button class="invitations-button" onclick="viewInvitations()">Invitations <span id="invitation-count">Loading...</span></button>
+            <button class="add-chat-button" onclick="createNewChat()">+ New Chat</button>
+        </div>
+    </div>
+    <div class="controls">
+        <!-- Filter Buttons -->
+        <div class="filter-buttons">
+            <button class="filter-button active" onclick="filterChats('all')">All</button>
+            <button class="filter-button" onclick="filterChats('individual')">Individuals</button>
+            <button class="filter-button" onclick="filterChats('group')">Groups</button>
+            <button class="filter-button" onclick="filterChats('unread')">Unread <span id="unread-count"></span></button>
+            <button class="filter-button" onclick="filterChats('favourites')">Favourites</button>
+
+        </div>
+        <!-- Search Bar -->
+        <div id="search-container">
+            <div class="sort-dropdown">
+                <button id="sort-button" onclick="toggleSortOptions()">
+                    <!-- icon for sorting here -->
+                    <span class="sort-text">Sort</span> 
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sort-icon">
+                        <path d="M6 9l6 6 6-6"></path>
+                    </svg>
+                    
+                </button>
+                <div id="sort-options" class="sort-options">
+                    <div class="sort-option">Newest</div>
+                    <div class="sort-option">Oldest</div>
+                </div>
+            </div>
+            <div id="search-bar">
+                <input type="text" id="search-input" onkeyup="searchChats()" placeholder="Search chats...">
+            </div>
+        </div>
+    </div>
+    
+    <div id="chat-list">
+        <!-- This will be populated with chat data by chat-list.js -->
+    </div>   
+
+    <div id="no-chats-message" style="display: none; text-align: center;">
+        <p>No chats to display.</p>
+    </div>
+
+    
+    <script src="{% static 'js/chat-list.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+{% endblock %}

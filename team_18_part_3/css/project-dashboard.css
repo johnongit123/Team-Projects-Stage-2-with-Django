@@ -1,0 +1,105 @@
+h2
+{
+    font-size: 2rem;
+}
+
+.central-tight
+{
+    margin-inline: auto;
+    width: fit-content;
+    max-width: max-content;
+}
+
+#graph-list
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+
+    list-style: none;
+
+    min-width: min-content;
+    min-height: min-content;
+}
+
+/* Graph List Item */
+#graph-list > li
+{
+    --_size: 30rem;
+    --_padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    box-sizing: content-box;
+    width: var(--_size);
+    height: var(--_size);
+    padding: var(--_padding);
+    background-color: var(--bg-1);
+    border-radius: .75rem;
+}
+#graph-list > li > .graph-container
+{
+    width: var(--_size);
+    height: var(--_size);
+}
+/* Edit Button */
+#graph-list > li > button
+{
+    position: absolute;
+    top: .25rem;
+    right: .25rem;
+    z-index: 2;
+
+    display: grid;
+    place-items: center;
+    font-size: 1.25rem;
+
+    padding: .5rem;
+
+    opacity: 1;
+    translate: 0 -100px;
+    transition: all .25s ease;
+}
+#graph-list > li:hover > button
+{
+    opacity: 1;
+    translate: 0 0;
+}
+
+
+#edit-graph-modal input[type="text"]
+{
+    cursor: text;
+}
+
+/* Filter Styles */
+#edit-graph-modal .filters
+{
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+#edit-graph-modal .filters > label
+{
+    display: grid;
+    position: relative;
+    width: max-content;
+    height: max-content;
+    border-radius: 100vw;
+}
+#edit-graph-modal .filters > input[type="checkbox"]
+{
+    visibility: hidden;
+    position: absolute;
+}
+#edit-graph-modal .filters > input:checked + label
+{
+    color: black;
+    border-color: rgb(var(--accent));
+    background-color: rgb(var(--accent));
+}
+#edit-graph-modal input[type="text"]
+{
+    font-family: Monospace, sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-2);
+}

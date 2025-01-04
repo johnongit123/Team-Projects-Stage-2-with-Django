@@ -1,0 +1,220 @@
+/* use these variables for background color & any text */
+/* then we can just change these instead of changing every element individually */
+[data-theme="light"] {
+    /* light color scheme */
+    --text-color: black;
+    --alt-text-color: #555555;
+    --bg-1: rgb(217,217,217);
+    --bg-2: rgb(242,242,242);
+    --bg-3: rgb(166,166,166);
+    --accent: 236, 204, 0;
+}
+[data-theme="dark"] {
+    /* dark color scheme */
+    --text-color: white;
+    --alt-text-color: lightgray;
+    --bg-1: rgb(34,40,45);
+    --bg-2: rgb(55,62,67);
+    --bg-3: rgb(82,93,100);
+    --accent: 236, 204, 0;
+}
+:root[data-theme="light"] .switch-to-light,
+:root[data-theme="dark"] .switch-to-dark {
+    display: none;
+}
+
+
+/* styles used across all pages */
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Monospace, sans-serif;
+    color: var(--text-color);
+    overflow: hidden;
+    background-color: var(--bg-1);
+}
+.page-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+.main-content {
+    --section-padding: 1.5rem;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: var(--section-padding);
+    overflow: auto;
+}
+.main-content > .central {
+    min-width: min-content;
+    max-width: min(1400px, 80vw);
+    margin-inline: auto;
+    padding: var(--section-padding);
+}
+
+/* Breadcrumb title - (e.g. Forum > Topic title) */
+h1.breadcrumb {
+    white-space: nowrap;
+}
+h1.breadcrumb, h1.breadcrumb > a {
+    color: var(--alt-text-color);
+    font-weight: lighter;
+    font-size: 2.5rem;
+    text-decoration: none;
+    margin-bottom: 4rem;
+}
+h1.breadcrumb > a:hover {
+    text-decoration: underline;
+    scale: 1.25;
+}
+h1.breadcrumb > b {
+    color: var(--text-color);
+    font-size: 3rem;
+}
+
+/* Adds the curved border background - common throughout design */
+.background {
+    --bg-colour: var(--bg-2);
+    padding: var(--section-padding);
+    background-color: var(--bg-colour);
+    border-radius: 18px;
+}
+/* for placing things in a column */
+.column-container {
+    --gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+/* for placing things in a row  */
+.row-container {
+    --gap: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--gap);
+}
+.row-container > .right {
+    margin-left: auto;
+}
+
+
+/* Standard Button Style */
+.button {
+    --bg-colour: var(--bg-2);
+    color: var(--text-color);
+    font-family: Monospace, sans-serif;
+    font-size: 1rem;
+    font-weight: bolder;
+    white-space: nowrap;
+    user-select: none;
+    cursor: pointer;
+    padding-block: .5rem;
+    padding-inline: 1rem;
+    border-radius: 8px;
+    border: var(--alt-text-color) 3px solid;
+    background-color: var(--bg-colour);
+}
+.button:focus, .button:hover {
+    border-color: rgb(var(--accent));
+}
+
+/* Red Circle X Button - starts hidden */
+.red-circle-button {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    translate: 50% -50%;
+    color: white;
+    aspect-ratio: 1;
+    font-size: 1.25rem;
+    padding: .125rem;
+    border: var(--bg-2) 4px solid;
+    border-radius: 100vw;
+    background-color: #bd340f;
+    transition: scale 250ms, border 100ms;
+    transition-timing-function: ease;
+}
+li:hover .red-circle-button {
+    display: grid;
+    place-items: center;
+}
+.red-circle-button:hover {
+    cursor: pointer;
+    scale: 1.25;
+    border-width: 2px;
+}
+
+
+/* Descriptions of Tasks, Projects, Threads, Posts, Comments */
+.formatted-text {
+    white-space: pre-wrap;
+}
+
+
+/* Burger-Style Layout - Used Across All Pages e.g. for each task, project-details, forum */
+.burger-layout {
+    --bg-colour: var(--bg-2);
+    --gap: .5rem;
+    --border-radius: 18px;
+    --padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+.burger-layout > :not(.row),
+.burger-layout > .row > * {
+    padding: var(--padding);
+    background-color: var(--bg-colour);
+}
+.burger-layout > .row > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.burger-layout > .row {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: stretch;
+    gap: var(--gap);
+    width: 100%;
+}
+.burger-layout > header.row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+}
+
+/* Border Radii - top, middle, bottom rows */
+.burger-layout > *:first-child {
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+.burger-layout > *:not(:first-child):not(:last-child) {
+    border-radius: 0;
+}
+.burger-layout > *:last-child {
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+}
+
+/* Border Radii - for multiple columns in each row */
+.burger-layout > .row:first-child > *:first-child {
+    border-top-left-radius: var(--border-radius);
+}
+.burger-layout > .row:first-child > *:last-child {
+    border-top-right-radius: var(--border-radius);
+}
+.burger-layout > .row:last-child > *:first-child {
+    border-bottom-left-radius: var(--border-radius);
+}
+.burger-layout > .row:last-child > *:last-child {
+    border-bottom-right-radius: var(--border-radius);
+}
+.burger-layout > .row:not(:first-child):not(:last-child) > *,
+.burger-layout > .row > *:not(:first-child):not(:last-child) {
+    border-radius: 0;
+}

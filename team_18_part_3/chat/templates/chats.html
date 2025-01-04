@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<!DOCTYPE html>
+    <title>Chat</title>
+
+    <!-- css -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dash.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/chat-style.css' %}">
+    <!-- javascript -->
+    <!--<script src="{% static 'js/sidebar.js' %}"></script>-->
+	<script src="{% static 'js/chat-elements.js' %}"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<script>
+	const csrfToken = "{{ csrf_token }}";
+</script>
+<div id="data-container" data-chat-id="{{ chat_id }}" data-current-employee-id="{{ current_employee_id }}"></div>
+<!-- chat buttons -->
+<section class="chat-header">
+	<div id="back" class="header-item">
+		<a href="{% url 'frontend-chat-list' %}">
+			<span id="back-button"><img src="{% static 'img/chat_images/back.png' %}" id="back-img"></span>
+		</a>
+	</div>
+	<div id="settings" class="header-item">
+		<span id="settings-button"><img src="{% static 'img/chat_images/settings.jpg' %}" alt="" id="settings-img"></span>
+		<div id="chatSettings" class="my-modal">
+			<div class="my-modal-content">
+				<span id="settingsClose">&times;</span>
+				<div class="chat-settings-title">
+					<p>Chat Members</p>
+				</div>
+				<div id="chat-members-list">
+				</div>
+				<div class="chat-settings-title">
+					<p>Chat Settings</p>
+				</div>
+				<div id="chat-settings">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="memberModalImg" block-img-path="{% static 'img/chat_images/block.jpeg' %}" report-image-path="{% static 'img/chat_images/flag.png' %}"></div>
+	<div id="memberdetails" class="my-modal">
+	</div>
+	<div id="inviteMembers" class="my-modal">
+		<div class="my-modal-content">
+			<span id="inviteClose">&times;</span>
+			<div class="chat-settings-title">
+				<p>Add new member:</p>
+			</div>
+			<div id="input-area">
+				<p id="input-email" contenteditable="true" role="textbox">
+			</div>
+			<div id="add-member">
+				<p id="add-btn">Add</p>
+			</div>
+			<div id="error-display">
+				<p id="error-message"></p>			
+			</div>
+		</div>
+	</div>
+	<div id="leaveChat" class="my-modal">
+		<div class="my-modal-content">
+			<span id="leaveClose">&times;</span>
+			<div class="chat-settings-title">
+				<p>Are you sure you want to leave this chat</p>
+			</div>
+			<div id="leave-chat">
+				<p id="leave-btn">Leave</p>
+			</div>
+		</div>
+	</div>
+	<div id="confirmReportChat" class="my-modal">
+		<div class="my-modal-content">
+			<span id="reportReasonClose">&times;</span>
+			<div class="chat-settings-title">
+				<p>Reason for reporting:</p>
+			</div>
+			<div id="input-area">
+				<p id="input-reason" contenteditable="true" role="textbox">
+			</div>
+			<div id="input-report">
+				<p id="report-btn">Report</p>
+			</div>
+			<div id="error-display">
+				<p id="error-reason"></p>			
+			</div>
+		</div>
+	</div>
+	<div id="leaveChat" class="my-modal">
+		<div class="my-modal-content">
+			<span id="leaveClose">&times;</span>
+			<div class="chat-settings-title">
+				<p>Are you sure you want to leave this chat</p>
+			</div>
+			<div id="leave-chat">
+				<p id="leave-btn">Leave</p>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- chat messages container -->
+<section class="chat-container" id="chat-scroll" data-static-url="{% static 'img/chat_images/three-dot-icon.png' %}">
+</section>
+<!-- tools to create and post a message -->
+<section class="create-area">
+	<form id="message-form">
+		<div class="message-create">
+			<div class="message-tools message-input">
+				<textarea type="text" id="message-type" rows="4" cols="50"></textarea>
+				<!--<div class="img-container">
+					<img src="{% static 'img/chat_images/link-file.png' %}" alt="" id="link-file-img">
+				</div>
+				<div class="img-container">
+					<img src="{% static 'img/chat_images/add-img.png' %}" alt="" id="add-img">
+				</div>-->
+			</div>
+			<div class="message-tools send-message" id="send-message">
+				<div class="img-container">
+					<img src="{% static 'img/chat_images/send.png' %}" alt="" id="send-img">
+				</div>
+			</div>
+		</div>
+	</form>
+</section>
+
+{% endblock %}

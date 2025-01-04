@@ -1,0 +1,918 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#header {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+h1 {
+ 
+    font-size: 36px;
+    margin-top: 12px; /* Adjusted to remove unnecessary space */   
+}
+
+.controls {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-chat-button, .filter-button, .invitations-button {
+    padding: 12px 20px; 
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px; 
+    transition: background-color 0.3s ease;
+}
+
+.add-chat-button {
+    background-color: #4CAF50; 
+    color: white;
+    margin-left: 10px;
+}
+
+.add-chat-button:hover {
+    background-color: #45a049;
+}
+
+.filter-button {
+    background-color: #5D647B; 
+    color: white;
+    margin-right: 10px; 
+    transition: background-color 0.3s;
+}
+
+.filter-button:hover {
+    background-color: #4e5572; 
+}
+
+.filter-button.active, .filter-button:hover {
+    background-color: #d0d0d0; 
+    color: #333333;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#search-bar {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-start; 
+    margin-left: 40px; 
+    position: relative; 
+}
+.filter-button.active {
+    background-color: #4285F4; 
+    color: white; 
+}
+
+
+#search-container {
+    display: flex;
+    align-items: center;
+}
+
+#sort-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-right: 10px; 
+    padding: 5px 10px; 
+    font-size: 16px; 
+}
+
+
+.sort-dropdown {
+    position: relative;
+}
+
+#sort-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.sort-options {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.sort-option {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.sort-option:hover {
+    background-color: #f7f7f7;
+}
+
+#sort-button {
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    font-size: 16px;
+    gap: 5px;
+    border-radius: 20px; 
+    transition: all 0.2s ease-in-out;
+}
+
+#sort-button:hover, #sort-button:focus {
+    background-color: #e2e2e2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#sort-button:active, .sort-option.selected {
+    background-color: #d0d0d0;
+}
+
+.sort-options {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    margin-top: 2px; /* This ensures there's a small gap after the button */
+
+}
+
+
+#search-input {
+    width: 100%; 
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+#chat-list {
+    width: 90%;
+    max-width: 1200px; 
+    margin: 20px auto; 
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: visible;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border: 2px solid #e1e1e1;
+}
+
+.chat-item {
+    padding: 20px 25px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-size: 18px; 
+    position: relative;
+    
+}
+
+.chat-item:last-child {
+    border-bottom: none;
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-100%); /* Move to the left */
+    }
+}
+
+.chat-item.removing {
+    animation: slideOut 0.4s ease forwards;
+}
+
+#user-search{
+    padding: 5px;
+    box-sizing: border-box; 
+    border: 1px solid #ccc;  
+    border-radius: 5px; 
+    outline: none;  
+}
+
+#user-search:focus {
+    border-color: #0066cc;
+    box-shadow: 0 0 8px rgba(0, 102, 204, 0.3);  
+}
+
+.group-chat .chat-name, .one-on-one-chat .chat-name {
+    font-weight: 600;
+    color: #4CAF50; 
+}
+
+.chat-preview {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-right: 35px; 
+    margin-top: 5px;
+    color: #666;
+    font-size: 16px; 
+}
+
+.chat-item.unread .chat-name {
+    font-weight: bold; 
+}
+
+.chat-item .chat-preview .unread-indicator {
+    display: none; /* Hide by default */
+}
+
+/* Show the unread indicator for unread chats */
+.chat-item.unread .chat-preview .unread-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #007bff;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.chat-info {
+    flex-grow: 1; 
+    min-width: 0;
+}
+
+.chat-meta {
+    display: flex;
+    align-items: center; 
+}
+
+.menu-dots {
+    cursor: pointer;
+    padding: 8px; 
+    margin-left: 8px; 
+    position: relative; 
+}
+
+.chat-item .dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 10; 
+}
+
+.dropdown-menu .dropdown-item {
+    padding: 10px;
+    white-space: nowrap; /* Keep menu text on one line */
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #f7f7f7;
+}
+
+/* Style to display the dropdown menu when the dots are clicked */
+.menu-dots.active + .dropdown-menu {
+    display: block;
+}
+
+/* Make sure the chat item doesn't trigger navigation when clicking on menu dots */
+.chat-item .menu-dots {
+    pointer-events: none;
+}
+
+.chat-item .chat-options {
+    position: relative;
+}
+
+.chat-meta {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align to the right */
+}
+
+.chat-options {
+    position: relative;
+    margin-left: 10px; /* Space between date and menu */
+}
+.chat-options .menu-dots {
+    pointer-events: all; /* Allow pointer events */
+}
+
+.dropdown-menu .dropdown-item {
+    padding: 10px;
+    white-space: nowrap; /* Keep menu text on one line */
+    cursor: pointer; /* Ensure the cursor is a pointer */
+}
+
+/* Ensure only the dropdown item has the hover effect */
+.dropdown-menu .dropdown-item:not(:hover) {
+    background-color: transparent;
+}
+
+/* Position the dropdown menu upwards if it's the last child */
+.chat-item:last-child .dropdown-menu {
+    bottom: 100%; /* Position it above the chat item */
+    top: auto; /* Override the top value */
+}
+
+#unread-count {
+    background-color: #007bff; 
+    color: white;
+    font-weight: bold;
+    padding: 4px;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    margin-left: 5px;
+}
+
+.mute-icon {
+    cursor: pointer;
+}
+
+
+/* Correctly position and display the dropdown menu */
+.chat-options .menu-dots + .dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 30px; 
+    z-index: 100; /* Higher than chat-item */
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 6px;
+}
+
+
+
+/* Pointer events for the dropdown menu and its items */
+.chat-meta, .chat-options, .menu-dots, .dropdown-menu, .dropdown-menu .dropdown-item {
+    pointer-events: auto;
+}
+
+
+.dropdown-menu .dropdown-item {
+    pointer-events: auto; /* Enable pointer events so it's clickable */
+}
+
+
+/* More styles for last child dropdown to avoid cut-off */
+.chat-item:last-child .dropdown-menu {
+    bottom: 100%; /* Position above the chat item */
+    top: auto; /* Clear the top value */
+}
+
+
+
+
+
+.timestamp {
+    font-size: 12px;
+    color: #999;
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    z-index: 1;
+}
+
+
+.chat-preview strong {
+    font-weight: 600;
+}
+
+
+.chat-item.dropdown-active {
+    pointer-events: none; /* Disables pointer events when dropdown is active */
+}
+
+/* Hover effects only apply when .dropdown-active is NOT present */
+.chat-item:not(.dropdown-active):hover {
+    background-color: #e8e8e8; /* Slightly darker to increase contrast */
+    border-left: 4px solid #4285F4; /* Add visual indicator for hovered item */
+    padding-left: 21px; /* Adjust padding to accommodate the border */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.chat-item:hover {
+    background-color: #e8e8e8; 
+    border-left: 4px solid #4285F4; /* Adding a left border for visual indication */
+    padding-left: 21px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.chat-item.dropdown-active {
+    pointer-events: none; 
+}
+
+/* Ensure content within the chat item can still receive pointer events, except for the areas we explicitly want to exclude */
+.chat-item.dropdown-active * {
+    pointer-events: auto; 
+}
+
+/* Prevent triggering hover state on chat items below an active dropdown */
+.chat-item:hover, .chat-item:not(.dropdown-active):hover {
+    background-color: #e8e8e8;
+    border-left: 4px solid #4285F4; /* Visual indication for hover */
+    padding-left: 21px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Ensure the trigger element for the dropdown and the dropdown menu itself always respond to mouse events */
+.menu-dots, .dropdown-menu {
+    pointer-events: auto;
+}
+
+
+
+/* MODALS */
+
+
+#header + div {
+    margin-bottom: 20px; 
+}
+
+* {
+    box-sizing: border-box; 
+}
+
+
+
+#no-chats-message {
+    display: none; /* Initially hidden */
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    color: #444; /* Dark gray text */
+    background-color: #f2f2f2; /* Light gray background */
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    margin: 20px auto; /* Centering */
+    width: 80%; /* Occupies 80% of its container's width */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+
+
+
+
+.link-button {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--text-color);
+    padding: .5rem;
+    background-color: var(--bg-1);
+    border: black 2px solid;
+    border-radius: .5rem;
+    transition: border-color .25s ease;
+}
+.link-button:hover {
+    border-color: rgb(var(--accent));
+}
+
+body {
+    display: flex; /* Enables flexbox layout */
+    min-height: 100vh; /* Full height of the viewport */
+    margin: 0; /* Removes default margin */
+}
+
+
+
+.controls {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap onto the next line */
+    justify-content: space-between; /* Space out filter buttons and search bar */
+    align-items: center; /* Center items vertically */
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 1; /* Allow filter buttons to grow and push search bar */
+    flex-wrap: wrap; /* Allow filter buttons to wrap on smaller screens */
+    margin-right: 20px; /* Ensure some space between filter buttons and search bar */
+}
+
+#search-bar {
+    /* Removed flex-grow to prevent it from taking up unnecessary space */
+    display: flex;
+    justify-content: flex-end; /* Align search bar to the end */
+    flex-basis: 300px; /* Minimum width before wrapping */
+    margin-left: auto; /* Automatically adjust left margin */
+}
+
+#search-input {
+    width: 100%; /* Make search input take the full width of its container */
+    padding: 10px;
+    margin: 0;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    display: none;
+}
+
+.my-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 101;
+    width: 90%;
+    max-width: 500px;
+    max-height: 70vh;
+    overflow-y: auto;
+    transition: transform 0.3s ease-out, opacity 0.3s ease;
+}
+
+.modal-content {
+    text-align: center;
+}
+
+.close-button {
+    color: #777;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #d9534f;
+}
+
+.my-modal h2 {
+    margin: 0 0 20px;
+    font-size: 24px;
+    color: #333;
+}
+/* Input Field */
+#group-chat-name {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.confirm-button, .cancel-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.confirm-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.cancel-button {
+    background-color: #2196F3;
+    color: white;
+}
+
+.confirm-button:hover {
+    background-color: #d32f2f;
+}
+
+.cancel-button:hover {
+    background-color: #1976D2; 
+}
+
+/* User List */
+#user-list {
+    text-align: center;
+    margin-top: 25px;
+    
+}
+#invite-users-count {
+    background-color: #007bff; 
+    border-radius: 50%; 
+    padding: 2px 6px;
+    margin-left: 5px; 
+    font-size: 0.8rem; 
+    vertical-align: top; 
+    display: inline-block; 
+    color: white; 
+}
+
+.invite-user {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd; 
+    padding-bottom: 5px; 
+}
+
+.invite-circle {
+    margin-right: 15px;
+    font-size: 20px;
+    
+}
+.invite-user-email {
+    font-size: 16px; 
+    color: #333; 
+}
+
+
+.invite-circle.selected {
+    color: #4CAF50;
+}
+
+.invite-circle:hover {
+    cursor: pointer;
+}
+/* Style the Confirm button */
+button#confirm-button {
+    background-color: #4CAF50; 
+    color: white;
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+/* Hover effect */
+button#confirm-button:hover {
+    background-color: #45a049; 
+}
+/* Invitation card styles */
+.invitation {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    padding: 15px;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Accept/Deny button styles */
+.accept-invitation {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.accept-invitation:hover {
+    background-color: #218838;
+}
+
+.deny-invitation {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.deny-invitation:hover {
+    background-color: #c82333;
+}
+
+/* Sender name styles */
+.invitation .sender {
+    font-size: 0.9rem;
+    color: #6c757d;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.invitation .sender span {
+    color: #0056b3;
+}
+
+.no-invitations {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
+
+#group-chat-modal .modal-content,
+#independent-chat-modal .modal-content {
+    max-width: 400px; 
+    margin: 0 auto; 
+}
+
+/*  STYLING ADD CHAT MODAL   */
+
+/* Create New Chat Modal Button Styles */
+#new-chat-modal button {
+    background-color: #17a2b8; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px; 
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: inline-block; 
+    width: calc(50% - 20px); 
+}
+
+#new-chat-modal button:hover {
+    background-color: #138496; /* A slightly darker teal on hover */
+}
+
+#group-chat-modal input[type="text"],
+#independent-chat-modal input[type="text"] {
+    width: 100%; 
+    padding: 10px;
+    margin: 20px 0; 
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* Button styles for group and independent chat modal */
+#group-chat-modal button,
+#independent-chat-modal button {
+    background-color: #28a745; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px; 
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%; 
+}
+
+#group-chat-modal button:hover,
+#independent-chat-modal button:hover {
+    background-color: #218838; 
+}
+
+#group-chat-modal .modal-content,
+#independent-chat-modal .modal-content {
+    padding: 20px;
+    text-align: left; 
+}
+
+#group-chat-modal .modal,
+#independent-chat-modal .modal {
+    max-width: 400px; 
+}
+
+/* INVITATION BUTTON STYLING  */
+
+.invitations-button{
+    background-color: grey;
+    color: white;
+}
+
+.invitations-button:hover {
+    background-color: darkgrey; /* Slightly darker color on hover */
+}
+
+#invitation-count {
+    background-color: #dc3545; 
+    border-radius: 50%; 
+    padding: 2px 6px; 
+    margin-left: 5px; 
+    font-size: 0.8rem; 
+    vertical-align: top; 
+    display: inline-block; 
+    color: white;
+}
+
+
+/* FAVOURITE STYLING  */
+.star-icon {
+    cursor: pointer;
+    user-select: none;
+    font-size: 24px; 
+    color: #9e9e9e; 
+    transition: color 0.3s ease, transform 0.3s ease; 
+}
+
+.star-icon.favourited {
+    color: #ffd700; 
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8); 
+    transform: scale(1.1); 
+}
+
+.dropdown-menu {
+    z-index: 100; 
+}
+
+
+/* STYLING FOR SMALLER SCREEN SIZES   */
+@media (max-width: 1159px) {
+    
+
+    #search-bar {
+        margin-left: 0; /* Remove the left margin on small screens */      
+        margin-top: 15px; 
+
+    }
+
+    .sort-dropdown{
+        margin-left: 0; /* Remove the left margin on small screens */      
+        margin-top: 15px; 
+    }
+}
+
+@media (max-width: 805px) { 
+
+    #search-container{
+        width: 100%;
+    }
+
+
+    .filter-buttons {
+        justify-content: center; /* Center buttons for aesthetics */
+        flex-wrap: wrap; /* Allow buttons to wrap */
+    }
+
+    .filter-button, #search-bar {
+        margin-top: 10px; /* Add some space between wrapped items */
+        width: 100%; /* Full width for better usability on small screens */
+    }
+
+
+}
+@media (max-width: 500px) {
+    :root {
+        font-size: 0.75rem;
+    }
+}
+@media (max-width: 1600px) and (min-width: 500px) {
+    :root {
+        font-size: 0.875rem;
+    }
+}
+
